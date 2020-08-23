@@ -14,7 +14,7 @@
         </cdk-virtual-scroll-viewport> -->
 
         <div class="col-xl-2 col-md-3 col-sm-6 col-xs-12 mt-3" *ngFor="let item of cards">
-            <card [routerLink]="['/editar-deck', item.id]" [itemCard]="item"></card>
+            <card [routerLink]="['/deck/detail', item.id]" [itemCard]="item"></card>
         </div>
     </div>
 </div>

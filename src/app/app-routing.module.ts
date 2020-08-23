@@ -7,7 +7,10 @@ const routes: Routes = [
   { path: '',  redirectTo: 'decks/list', pathMatch: 'full' },
   {
     path: 'decks',  loadChildren: () =>
-      import('./pages/cards/list/card-list.module').then(m => m.CardListModule)
+      import('./pages/cards/list/card-list.module').then(e => e.CardListModule)
+  },
+  { path:'deck', loadChildren: () => 
+      import('./pages/cards/detail/card-detail.module').then(e => e.CardDetailModule)
   },
 ];
 

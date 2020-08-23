@@ -1,3 +1,4 @@
+import { Card } from './../models/cards/card';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
@@ -16,20 +17,18 @@ export class PokemonService {
   constructor(private http: HttpClient) { }
 
   public all(): Observable<ResponseCard> {
-    return this.get();
+    return this.http.get<ResponseCard>(`${this.baseUrl}`);
   }
 
-  public names(filtro: string): Observable<ResponseCard> {
-    const QUERY_STRING = `?name=${filtro}`;
-    return this.get(QUERY_STRING);
+  public name(filter: string): Observable<ResponseCard> {
+    const QUERY_STRING = `?name=${filter}`;
+    return this.http.get<ResponseCard>(`${this.baseUrl}${QUERY_STRING}`);
   }
 
-  private get(queryString: string = ""): Observable<ResponseCard> {
-    const API_URL = this.baseUrl;
-    return this.http.get<ResponseCard>(`${API_URL}${queryString}`);
+  public id(filter: string): Observable<ResponseCard> {
+    const QUERY_STRING = `?id=${filter}`;
+    return this.http.get<ResponseCard>(`${this.baseUrl}${QUERY_STRING}`);
   }
 
-//   private handleError(error: Response | any) {
-//     return Observable.throw(error);
-//   }
+  
 }

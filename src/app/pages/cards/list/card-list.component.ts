@@ -22,7 +22,17 @@ export class CardListComponent implements OnInit {
         });
     }
 
-
+    public filter(search: string): void {
+        if (search.length > 0) {
+            this.pokemonService.name(search).subscribe(e => {
+                this.cards = e.cards.sort(this.sortCard());
+            });
+            return;
+        }
+        this.pokemonService.all().subscribe(e => {
+            this.cards = e.cards.sort(this.sortCard());
+        })
+    }
 
     private sortCard(): (a: Card, b: Card) => number {
         return (a, b) => {
@@ -34,18 +44,6 @@ export class CardListComponent implements OnInit {
             }
             return 0;
         };
-    }
-
-    public filter(search: string) {
-        if (search.length > 0) {
-            this.pokemonService.names(search).subscribe(e => {
-                this.cards = e.cards.sort(this.sortCard());
-            });
-            return;
-        }
-        this.pokemonService.all().subscribe(e => {
-            this.cards = e.cards.sort(this.sortCard());
-        })
     }
 
 }

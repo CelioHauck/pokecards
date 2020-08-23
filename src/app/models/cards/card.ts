@@ -1,5 +1,6 @@
 import { Effect } from './effect';
 import { Attack } from './attack';
+
 export interface Card {
     id: string,
     name: string,
@@ -7,6 +8,6 @@ export interface Card {
     imageUrlHiRes: string,
     types: string[],
     attacks: Attack[],
-    resistences: Effect[]
+    resistances: Effect[]
     weaknesses: Effect[],
 }
