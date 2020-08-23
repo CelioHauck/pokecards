@@ -12,7 +12,8 @@ export class SearchCardComponent {
   search = new EventEmitter<string>();
 
   public emitValue(){
-    if(this.filter && this.filter.length > 3 || this.filter.length == 0)
+    //A condição foi comentada para não confundir o usuário final.
+    // if(this.filter && this.filter.length > 3 || this.filter.length == 0)
     this.search.emit(this.filter);
   }
 }
