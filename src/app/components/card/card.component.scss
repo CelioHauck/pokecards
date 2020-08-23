@@ -11,3 +11,13 @@
     height: 25px;
     width: 25px;
 }
+
+#card{
+    margin-bottom: 10%;
+    cursor: pointer;
+}
+
+#card:hover {
+    transition: transform 0.2s;
+    transform: scale(1.1);
+  }
