@@ -1,0 +1,20 @@
+<div class="container">
+    <search-card (search)="filter($event)"></search-card>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- <div class="col-xl-2 col-md-3 col-sm-6 col-xs-12 mt-3">
+            <card></card>
+        </div> -->
+        <!-- <cdk-virtual-scroll-viewport itemSize="100">
+            {{cards}}
+            <div *cdkVirtualFor="let item of cards">
+                {{item}}
+            </div>
+        </cdk-virtual-scroll-viewport> -->
+
+        <div class="col-xl-2 col-md-3 col-sm-6 col-xs-12 mt-3" *ngFor="let item of cards">
+            <card [itemCard]="item"></card>
+        </div>
+    </div>
+</div>
