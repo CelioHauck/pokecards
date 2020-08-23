@@ -1,79 +1,73 @@
-<!-- <div class="container">
-    <div class="row">
-        <img class="col-xs-12" [src]="card?.imageUrlHiRes" alt="card.name">
-        <div class="col-xs-12">
-
-        </div>
-    </div>
-</div> -->
-
-<mat-card class="container-fluid">
-    <mat-card-content>
-        <div class="container">
-            <div class="row">
-                <img id="card-full" class="col-12" [src]="card?.imageUrlHiRes" alt="card.name">
-                <div class="col-12 mt-3">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="row">
-                                <div id="title" class="col-12">{{card.name}}</div>
-                                <div id="sub-title" class="col-12">{{card.id}}</div>
+<div id="card">
+    <mat-card id="detail" class="container">
+        <mat-card-content >
+            <div class="container">
+                <!-- col-xl-2 col-md-3 col-sm-6 -->
+                <div class="row">
+                    <img id="card-full" class="col-sm-6 col-12" [src]="card?.imageUrlHiRes" alt="card.name">
+                    <div class="col-sm-6  col-12 mt-3">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="row">
+                                    <div id="title" class="col-12">{{card.name}}</div>
+                                    <div id="sub-title" class="col-12">{{card.id}}</div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <img mat-card-avatar *ngIf="card?.types && card?.types[1]"
+                                    [ngClass]="card.types[1].toLowerCase()">
+                            </div>
+                            <div class="col-2">
+                                <div *ngIf="card?.types && card?.types[0]" class="types-avatar"
+                                    [ngClass]="card.types[0].toLowerCase()"></div>
                             </div>
                         </div>
-                        <div class="col-2">
-                            <img mat-card-avatar *ngIf="card?.types && card?.types[1]"
-                                [ngClass]="card.types[1].toLowerCase()">
-                        </div>
-                        <div class="col-2">
-                            <div *ngIf="card?.types && card?.types[0]" class="types-avatar"
-                                [ngClass]="card.types[0].toLowerCase()"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 mt-4" *ngFor="let attack of card.attacks">
-                            <div class="row">
-                                <div class="col-1 mr-1" *ngFor="let cost of attack.cost">
-                                    <div *ngIf="cost" class="types-avatar" [ngClass]="cost.toLowerCase()">
+                        <div class="row">
+                            <div class="col-12 mt-4" *ngFor="let attack of card.attacks">
+                                <div class="row">
+                                    <div class="col-1 mr-1" *ngFor="let cost of attack.cost">
+                                        <div *ngIf="cost" class="types-avatar" [ngClass]="cost.toLowerCase()">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        {{attack.name}}
+                                    </div>
+                                    <div class="col-2">
+                                        {{attack.damage}}
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        {{attack.text}}
                                     </div>
                                 </div>
-                                <div class="col">
-                                    {{attack.name}}
-                                </div>
-                                <div class="col-2">
-                                    {{attack.damage}}
-                                </div>
-                                <div class="col-12 mt-3">
-                                    {{attack.text}}
-                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-6">
-                            <div class="mb-2">Weakness</div>
-                            <div class="row" *ngFor="let weakness of card.weaknesses">
-                                <div class="col-2">
-                                    <div class="types-avatar" [ngClass]="weakness.type.toLowerCase()"></div>
-                                </div>
-                                <div class="col">
-                                    {{weakness.value}}
+                        <div class="row mt-4">
+                            <div class="col-4 offset-2">
+                                <div class="mb-2">Weakness</div>
+                                <div class="row" *ngFor="let weakness of card.weaknesses">
+                                    <div class="col-2">
+                                        <div class="types-avatar" [ngClass]="weakness.type.toLowerCase()"></div>
+                                    </div>
+                                    <div class="col">
+                                        {{weakness.value}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-2">Resistance</div>
-                            <div class="row" *ngFor="let resistance of card.resistances">
-                                <div class="col-2">
-                                    <div class="types-avatar" [ngClass]="resistance.type.toLowerCase()"></div>
-                                </div>
-                                <div class="col">
-                                    {{resistance.value}}
+                            <div class="col-4 offset-2">
+                                <div class="mb-2">Resistance</div>
+                                <div class="row" *ngFor="let resistance of card.resistances">
+                                    <div class="col-2">
+                                        <div class="types-avatar" [ngClass]="resistance.type.toLowerCase()"></div>
+                                    </div>
+                                    <div class="col">
+                                        {{resistance.value}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </mat-card-content>
-</mat-card>
+        </mat-card-content>
+    </mat-card>
+</div>

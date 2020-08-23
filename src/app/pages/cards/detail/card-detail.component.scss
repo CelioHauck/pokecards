@@ -1,6 +1,5 @@
 @import '~src/assets/styles/logo-energy.scss';
 
-
 .types-avatar {
     width: 3rem;
     height: 3rem;
@@ -19,4 +18,15 @@
 #sub-title{
     color: grey;
     font-size: medium;
+}
+
+#detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card {
+    display:flex; flex-direction:column; justify-content:center;
+    min-height:100vh;
 }
