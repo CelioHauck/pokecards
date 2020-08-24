@@ -1,5 +1,5 @@
 <mat-card id="card" class="container-fluid">
-    <img mat-card-image [src]="itemCard?.imageUrl" alt="itemCard.name">
+    <img mat-card-image [src]="itemCard?.imageUrl" alt="card-image">
     <mat-card-header>
         <img mat-card-avatar *ngIf="itemCard?.types && itemCard?.types[0]" [ngClass]="itemCard.types[0].toLowerCase()">
         <img mat-card-avatar *ngIf="itemCard?.types && itemCard?.types[1]" [ngClass]="itemCard.types[1].toLowerCase()">
