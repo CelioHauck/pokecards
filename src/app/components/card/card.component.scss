@@ -17,7 +17,9 @@
     cursor: pointer;
 }
 
-#card:hover {
-    transition: transform 0.2s;
-    transform: scale(1.1);
-  }
+@media (min-width: 767px) {
+    #card:hover {
+        transition: transform 0.2s;
+        transform: scale(1.1);
+      }
+}
